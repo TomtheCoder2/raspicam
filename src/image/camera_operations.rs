@@ -191,7 +191,7 @@ pub fn click_image(
         // image_settings.vertical_flip,
     ]);
     // print the command
-    println!("{:?}", command);
+    // println!("{:?}", command);
     // execute the command
     command.output()
 }
