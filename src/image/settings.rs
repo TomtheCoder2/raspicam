@@ -51,24 +51,25 @@ impl Default for CameraSettings {
     ///           brightness: "60",
     ///           saturation: "0",
     ///           quality: "100",
-    ///           timeout: "3000",
+    ///           timeout: "20",
     ///           iso: "300",
-    ///           output: "~/raspicam.jpg",
+    ///           output: "./out.jpg",
     /// };
     ///
     /// assert_eq!(camera_settings, test_camera_settings);
     /// ```
     ///
     fn default() -> CameraSettings {
+        //-brightness=0.3 --saturation=2
         CameraSettings {
-            contrast: "50",
-            sharpness: "30",
-            brightness: "60",
-            saturation: "0",
-            quality: "100",
-            timeout: "3000",
+            contrast: "1",
+            sharpness: "1",
+            brightness: "0.3",
+            saturation: "2",
+            quality: "93",
+            timeout: "10ms",
             iso: "300",
-            output: "~/raspicam.jpg",
+            output: "./out.jpg",
         }
     }
 }
@@ -127,8 +128,8 @@ impl Default for ImageSettings {
     ///
     fn default() -> ImageSettings {
         ImageSettings {
-            width: "200",
-            height: "200",
+            width: "0",
+            height: "0",
             rotation: "180",
             horizontal_flip: "false",
             vertical_flip: "false",
