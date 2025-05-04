@@ -7,17 +7,17 @@
 /// use raspicam::image::settings::CameraSettings;
 ///
 /// let camera_settings: CameraSettings = CameraSettings {
-///        sharpness: "50",//or any value you want to modify
+///        sharpness: "50".to_string(),//or any value you want to modify
 ///        ..Default::default()
 ///    };
 /// let test_camera_settings: CameraSettings = CameraSettings {
-///           contrast: "50",
-///           sharpness: "50",
-///           brightness: "60",
-///           saturation: "0",
-///           quality: "100",
-///           timeout: "3000",
-///           iso: "300",
+///           contrast: "50".to_string(),
+///           sharpness: "50".to_string(),
+///           brightness: "60".to_string(),
+///           saturation: "0".to_string(),
+///           quality: "100".to_string(),
+///           timeout: "3000".to_string(),
+///           iso: "300".to_string(),
 ///           output: "~/raspicam.jpg".parse().unwrap(),
 /// };
 ///
@@ -26,13 +26,13 @@
 ///
 #[derive(Debug, PartialEq)]
 pub struct CameraSettings {
-    pub contrast: &'static str,
-    pub sharpness: &'static str,
-    pub brightness: &'static str,
-    pub saturation: &'static str,
-    pub quality: &'static str,
-    pub timeout: &'static str,
-    pub iso: &'static str,
+    pub contrast: String,
+    pub sharpness: String,
+    pub brightness: String,
+    pub saturation: String,
+    pub quality: String,
+    pub timeout: String,
+    pub iso: String,
     pub output: String,
 }
 
@@ -46,13 +46,13 @@ impl Default for CameraSettings {
     ///
     /// let camera_settings: CameraSettings = CameraSettings::default();
     /// let test_camera_settings: CameraSettings = CameraSettings {
-    ///           contrast: "50",
-    ///           sharpness: "30",
-    ///           brightness: "60",
-    ///           saturation: "0",
-    ///           quality: "100",
-    ///           timeout: "20",
-    ///           iso: "300",
+    ///           contrast: "50".to_string(),
+    ///           sharpness: "30".to_string(),
+    ///           brightness: "60".to_string(),
+    ///           saturation: "0".to_string(),
+    ///           quality: "100".to_string(),
+    ///           timeout: "20".to_string(),
+    ///           iso: "300".to_string(),
     ///           output: "./out.jpg".parse().unwrap(),
     /// };
     ///
@@ -62,13 +62,13 @@ impl Default for CameraSettings {
     fn default() -> CameraSettings {
         //-brightness=0.3 --saturation=2
         CameraSettings {
-            contrast: "1",
-            sharpness: "1",
-            brightness: "0.3",
-            saturation: "2",
-            quality: "93",
-            timeout: "10ms",
-            iso: "300",
+            contrast: "1".to_string(),
+            sharpness: "1".to_string(),
+            brightness: "0.3".to_string(),
+            saturation: "2".to_string(),
+            quality: "93".to_string(),
+            timeout: "10ms".to_string(),
+            iso: "300".to_string(),
             output: "./out.jpg".parse().unwrap(),
         }
     }
@@ -83,15 +83,15 @@ impl Default for CameraSettings {
 /// use raspicam::image::settings::ImageSettings;
 ///
 /// let image_settings: ImageSettings = ImageSettings {
-///        width: "50",//or any value you want to modify
+///        width: "50".to_string(),//or any value you want to modify
 ///        ..Default::default()
 ///    };
 /// let test_image_settings: ImageSettings = ImageSettings {
-///         width: "50",
-///         height: "200",
-///         rotation: "180",
-///         horizontal_flip: "false",
-///         vertical_flip: "false",
+///         width: "50".to_string(),
+///         height: "200".to_string(),
+///         rotation: "180".to_string(),
+///         horizontal_flip: "false".to_string(),
+///         vertical_flip: "false".to_string(),
 /// };
 ///
 /// assert_eq!(image_settings, test_image_settings);
@@ -99,11 +99,11 @@ impl Default for CameraSettings {
 ///
 #[derive(Debug, PartialEq)]
 pub struct ImageSettings {
-    pub width: &'static str,
-    pub height: &'static str,
-    pub rotation: &'static str,
-    pub horizontal_flip: &'static str,
-    pub vertical_flip: &'static str,
+    pub width: String,
+    pub height: String,
+    pub rotation: String,
+    pub horizontal_flip: String,
+    pub vertical_flip: String,
 }
 
 impl Default for ImageSettings {
@@ -116,11 +116,11 @@ impl Default for ImageSettings {
     ///
     /// let image_settings: ImageSettings = ImageSettings::default();
     /// let test_image_settings: ImageSettings = ImageSettings {
-    ///         width: "200",
-    ///         height: "200",
-    ///         rotation: "180",
-    ///         horizontal_flip: "false",
-    ///         vertical_flip: "false",
+    ///         width: "200".to_string(),
+    ///         height: "200".to_string(),
+    ///         rotation: "180".to_string(),
+    ///         horizontal_flip: "false".to_string(),
+    ///         vertical_flip: "false".to_string(),
     /// };
     ///
     /// assert_eq!(image_settings, test_image_settings);
@@ -128,11 +128,11 @@ impl Default for ImageSettings {
     ///
     fn default() -> ImageSettings {
         ImageSettings {
-            width: "0",
-            height: "0",
-            rotation: "180",
-            horizontal_flip: "false",
-            vertical_flip: "false",
+            width: "0".to_string(),
+            height: "0".to_string(),
+            rotation: "180".to_string(),
+            horizontal_flip: "false".to_string(),
+            vertical_flip: "false".to_string(),
         }
     }
 }

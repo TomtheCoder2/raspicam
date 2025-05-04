@@ -127,10 +127,10 @@ static IMAGE_SHARPNESS: &str = "--sharpness";
 static IMAGE_BRIGHTNESS: &str = "--brightness";
 static IMAGE_SATURATION: &str = "--saturation";
 static IMAGE_QUALITY: &str = "--quality";
-static IMAGE_ISO: &str = "-ISO";
-static IMAGE_ROTATION: &str = "-rot";
-static IMAGE_HORIZONTAL_FLIP: &str = "-hf";
-static IMAGE_VERTICAL_FLIP: &str = "-vf";
+// static IMAGE_ISO: &str = "-ISO";
+// static IMAGE_ROTATION: &str = "-rot";
+// static IMAGE_HORIZONTAL_FLIP: &str = "-hf";
+// static IMAGE_VERTICAL_FLIP: &str = "-vf";
 
 /// Click image from RaspberryPi's camera and store that image in the user defined path.
 ///
@@ -164,25 +164,25 @@ pub fn click_image(
     let mut command = Command::new(TRIGGER_CAMERA);
     command.args(&[
         IMAGE_CONTRAST,
-        camera_settings.contrast,
+        &*camera_settings.contrast,
         IMAGE_SHARPNESS,
-        camera_settings.sharpness,
+        &*camera_settings.sharpness,
         IMAGE_BRIGHTNESS,
-        camera_settings.brightness,
+        &*camera_settings.brightness,
         IMAGE_SATURATION,
-        camera_settings.saturation,
+        &*camera_settings.saturation,
         IMAGE_QUALITY,
-        camera_settings.quality,
+        &*camera_settings.quality,
         CAMERA_SHUTTER_SPEED,
-        camera_settings.timeout,
+        &*camera_settings.timeout,
         // IMAGE_ISO,
         // camera_settings.iso,
         CLICKED_IMAGE_PATH,
         &camera_settings.output.clone(),
         IMAGE_WIDTH,
-        image_settings.width,
+        &*image_settings.width,
         IMAGE_HEIGHT,
-        image_settings.height,
+        &*image_settings.height,
         // IMAGE_ROTATION,
         // image_settings.rotation,
         // IMAGE_HORIZONTAL_FLIP,
