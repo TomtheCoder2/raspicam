@@ -160,7 +160,7 @@ pub fn click_image(
     camera_settings: CameraSettings,
     image_settings: ImageSettings,
 ) -> Result<Output, Error> {
-    Command::new("rm").arg(camera_settings.output).output()?;
+    Command::new("rm").arg(camera_settings.output.clone()).output()?;
     let mut command = Command::new(TRIGGER_CAMERA);
     command.args(&[
         IMAGE_CONTRAST,
@@ -178,7 +178,7 @@ pub fn click_image(
         // IMAGE_ISO,
         // camera_settings.iso,
         CLICKED_IMAGE_PATH,
-        camera_settings.output,
+        &camera_settings.output.clone(),
         IMAGE_WIDTH,
         image_settings.width,
         IMAGE_HEIGHT,

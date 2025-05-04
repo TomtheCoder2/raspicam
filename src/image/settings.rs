@@ -18,7 +18,7 @@
 ///           quality: "100",
 ///           timeout: "3000",
 ///           iso: "300",
-///           output: "~/raspicam.jpg",
+///           output: "~/raspicam.jpg".parse().unwrap(),
 /// };
 ///
 /// assert_eq!(camera_settings, test_camera_settings);
@@ -33,7 +33,7 @@ pub struct CameraSettings {
     pub quality: &'static str,
     pub timeout: &'static str,
     pub iso: &'static str,
-    pub output: &'static str,
+    pub output: String,
 }
 
 impl Default for CameraSettings {
@@ -53,7 +53,7 @@ impl Default for CameraSettings {
     ///           quality: "100",
     ///           timeout: "20",
     ///           iso: "300",
-    ///           output: "./out.jpg",
+    ///           output: "./out.jpg".parse().unwrap(),
     /// };
     ///
     /// assert_eq!(camera_settings, test_camera_settings);
@@ -69,7 +69,7 @@ impl Default for CameraSettings {
             quality: "93",
             timeout: "10ms",
             iso: "300",
-            output: "./out.jpg",
+            output: "./out.jpg".parse().unwrap(),
         }
     }
 }
