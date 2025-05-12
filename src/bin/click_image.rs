@@ -3,7 +3,7 @@ extern crate raspicam;
 use raspicam::image::camera_operations::click_image;
 use raspicam::image::settings::{CameraSettings, ImageSettings};
 use std::io::Error;
-use std::process::Output;
+use std::process::{Command, Output};
 
 pub fn main() {
     // Initialize camera settings with their default values.
@@ -13,7 +13,7 @@ pub fn main() {
     let image_settings: ImageSettings = ImageSettings::default();
 
     // Capture image using RaspberryPi's camera function.
-    let result: Result<(String, Output), Error> = click_image(camera_settings, image_settings);
+    let result: Result<(Command, Output), Error> = click_image(camera_settings, image_settings);
 
     // Print the resultant output or check the clicked image in the default path[~/raspicam.jpg].
     println!("{:?}", result);
