@@ -159,7 +159,7 @@ static IMAGE_QUALITY: &str = "--quality";
 pub fn click_image(
     camera_settings: CameraSettings,
     image_settings: ImageSettings,
-) -> Result<Output, Error> {
+) -> Result<(String,Output), Error> {
     Command::new("rm").arg(camera_settings.output.clone()).output()?;
     let mut command = Command::new(TRIGGER_CAMERA);
     command.args(&[
@@ -193,5 +193,22 @@ pub fn click_image(
     // print the command
     // println!("{:?}", command);
     // execute the command
-    command.output()
+    match command.output() {
+        Ok(output) => {
+            if output.status.success() {
+                // println!("Image clicked successfully");
+                Ok((format!("{:?}", command), output))
+            } else {
+                println!("Error clicking image: {:?}", output);
+                Err(Error::new(
+                    std::io::ErrorKind::Other,
+                    "Error clicking image",
+                ))
+            }
+        }
+        Err(e) => {
+            // println!("Error executing command: {:?}", e);
+            Err(e)
+        }
+    }
 }
