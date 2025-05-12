@@ -159,8 +159,10 @@ static IMAGE_QUALITY: &str = "--quality";
 pub fn click_image(
     camera_settings: CameraSettings,
     image_settings: ImageSettings,
-) -> Result<(Command,Output), Error> {
-    Command::new("rm").arg(camera_settings.output.clone()).output()?;
+) -> Result<(Command, Output), Error> {
+    Command::new("rm")
+        .arg(camera_settings.output.clone())
+        .output()?;
     let mut command = Command::new(TRIGGER_CAMERA);
     command.args(&[
         IMAGE_CONTRAST,
@@ -189,6 +191,8 @@ pub fn click_image(
         // image_settings.horizontal_flip,
         // IMAGE_VERTICAL_FLIP,
         // image_settings.vertical_flip,
+        "--autofocus-mode=manual",
+        "--lens-position=1",
     ]);
     // print the command
     // println!("{:?}", command);
