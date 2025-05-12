@@ -13,7 +13,7 @@ pub fn main() {
     let image_settings: ImageSettings = ImageSettings::default();
 
     // Capture image using RaspberryPi's camera function.
-    let result: Result<Output, Error> = click_image(camera_settings, image_settings);
+    let result: Result<(String, Output), Error> = click_image(camera_settings, image_settings);
 
     // Print the resultant output or check the clicked image in the default path[~/raspicam.jpg].
     println!("{:?}", result);
